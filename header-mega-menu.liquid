@@ -1,0 +1,537 @@
+<style>
+  .site-header{
+      background: #19191C;
+  }
+  .site-header .mega-menu {
+    width: 100%;
+    background: #fff;
+    inset: 0px 0px auto auto !important;
+    margin: 0px !important;
+    transform: translate(0px, 104px) !important;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+    padding: 0;
+    border: 0px solid transparent;
+  }
+  
+  .list-group-item {
+    cursor: pointer;
+  }
+  
+  .collection-link {
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  .collection-content img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .collection-content .btn-primary {
+    background-color: #ff8c00;
+    border: none;
+  }
+  
+  .wishlist-btn {
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .wishlist-dropdown {
+     /* Hide by default */
+    position: absolute;
+    top: 100%; /* Position below the button */
+    right: 0;
+    background-color: white; /* Dropdown background */
+    border: 0px solid #ccc; /* Border styling */
+    z-index: 1000; /* Keep it on top */
+    width: 100%; /* Set a fixed width */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .header-wishlist:hover .wishlist-dropdown {
+    display: block; /* Show dropdown on hover */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+  
+  .wishlist-items {
+    padding: 50px; /* Padding inside the dropdown */
+  }
+  .wishlist-items h5{
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .wishlist-items ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+  #wishlistList{
+    border: 1px solid #ededed;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .wishlist-items .wishlist-table{
+    width: 100%;
+    border-radius: 16px;
+  }
+  .wishlist-items .wishlist-table tr th{
+    background: #F7F7FC;
+    text-align: center;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+  }
+  .wishlist-items .wishlist-table tr th{
+    border-right:1px solid #ededed; 
+  }
+  .wishlist-item td{
+    border-right:1px solid #ededed; 
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #000;
+  }
+  .wishlist-item{
+    border-top: 1px solid #ededed; 
+  }
+   .wishlist-item:nth-child(odd){
+     background: #F7F7FC;
+   }
+  .wishlist-items .wishlist-table tr th:last-child,.wishlist-item td:last-child{
+     border-right: 0px;
+   }
+  .wishlist-item td img{
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    background: #f7f7fc
+  }
+  .wishlist-item:nth-child(odd) td img{
+    background: #fff;
+  }
+  .wishlist-item td p{
+    margin-bottom: 0px;
+    font-size: 16px;
+    color: #000;
+  }
+  .wishlist-item td .ck-button {
+    padding: 9px 20px 9px 10px;
+    transition: all 0.2s linear;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wishlist-item td .ck-button svg{
+    margin-right: 5px;
+  }
+  .wishlist-item td .remove-from-wishlist{
+    border: 0px;
+    padding: 0px;
+    background: transparent;
+    display: inline-flex;
+    top: -6px;
+    position: relative;
+    margin-right: 4px;
+  }
+  .wishlist-item td .ck-button:hover{
+    background: #19191c !important;
+    color: #fff !important;
+  }
+  .main-nav .nav-link {
+      color: #fff;
+      font-size: 16px;
+      padding: 40px 20px;
+      line-height: 24px;
+  }
+  .header_meta .header-wishlist {
+    margin: 0 16px;
+    padding: 37px 0px;
+  }
+  .utility-bar__grid.page-width {
+      padding-left: 0;
+      padding-right: 0;
+  }
+  .header_meta .ck-button.base-btn:hover {
+      background-color: #fff;
+      color: #19191c;
+      border: 1px solid #fff;
+  }
+  .tab_menu_item {
+      background: #F7F7FC;
+      border: 0px solid #EDEDFD;
+      height: 100%;
+      padding: 20px;
+  }
+  .tab_menu_item .nav-link {
+      color: #19191C;
+      padding: 8px 12px;
+      border-radius: 50px;
+      border: 0px solid transparent;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .tab_menu_item .nav-link.active, .tab_menu_item .nav-link:hover{
+    background: #FFA800;
+  }
+  .mega-menu-product-inner {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+  }
+  
+  .mega-menu-product-inner .mega-menu-product {
+      text-align: center;
+  }
+  
+  .mega-menu-product .product-price {
+      font-size: 12px;
+      line-height: 1.5;
+  }
+  
+  .mega-menu-product .product-title {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      color: #19191C;
+  }
+  
+  .mega-menu-product .product_img {
+      background: #F7F7FC;
+      border-radius: 10px;
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+  }
+  .mega-menu-product-wrapper {
+      padding: 20px;
+  }
+
+  @media (max-width: 1199px){
+    .wishlist-items {
+      padding: 20px;
+    }
+    .wishlist-items .wishlist-table tr th{
+      font-size: 14px;
+      padding: 6px 10px;
+      line-height: 1.5;
+    }
+    .wishlist-item td p{
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .wishlist-item td{
+      padding: 10px;
+    }
+    .wishlist-item td .ck-button{
+      padding: 5px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+  }
+</style>
+
+<header class="site-header">
+  <div class="container">
+    <div class="row align-items-center position-relative">
+      <!-- Logo Section -->
+      <div class="col-md-2">
+        <a href="{{ shop.url }}">
+          <img src="{{ section.settings.logo_image | img_url: 'master' }}" alt="logo">
+        </a>
+      </div>
+
+      <!-- Main Navigation & Mega Menu Trigger -->
+      <div class="col-md-7 d-flex align-items-center">
+        <nav class="main-nav">
+          <ul class="nav">
+            <!-- Loop through main menu items dynamically -->
+            {% for link in linklists.main-menu.links %}
+              <li class="nav-item {% if link.links.size > 0 %}dropdown position-static{% endif %}">
+                <a href="{{ link.url }}" 
+                   class="nav-link {% if link.links.size > 0 %}dropdown-toggle{% endif %}" 
+                   {% if link.links.size > 0 %}data-bs-toggle="dropdown"{% endif %}>
+                  {{ link.title }}
+                </a>
+
+                {% if link.links.size > 0 %}
+                  <!-- Mega Menu Dropdown -->
+                  <div class="dropdown-menu mega-menu">
+                    <div class="row">
+                      <!-- Sidebar for Collection Tabs (Left Column) -->
+                      <div class="col-md-3">
+                        <ul class="tab_menu_item nav nav-tabs flex-column" id="collectionTab" role="tablist">
+                          {% assign collections = collections | where: "published", true %}
+                          {% for collection in collections %}
+                            {% if collection.products_count > 0 %}
+                              <li class="nav-item">
+                                <a 
+                                  class="nav-link {% if forloop.first %}active{% endif %}" 
+                                  id="tab-{{ collection.id }}" 
+                                  data-bs-toggle="tab" 
+                                  href="#content-{{ collection.id }}" 
+                                  role="tab" 
+                                  aria-controls="content-{{ collection.id }}" 
+                                  aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                                  {{ collection.title }} <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                              </li>
+                            {% endif %}
+                          {% endfor %}
+                        </ul>
+                      </div>
+
+                      <!-- Product Display Area for Each Collection (Right Column) -->
+                      <div class="col-md-9">
+                        <div class="tab_product_content tab-content" id="collectionTabContent">
+                          {% for collection in collections %}
+                            {% if collection.products_count > 0 %}
+                              <div 
+                                class="tab-pane fade {% if forloop.first %}show active{% endif %}" 
+                                id="content-{{ collection.id }}" 
+                                role="tabpanel" 
+                                aria-labelledby="tab-{{ collection.id }}">
+                                <div class="mega-menu-product-wrapper">
+                                  <div class="mega-menu-product-inner">
+                                    {% for product in collection.products limit: 5 %}
+                                      <div class="mega-menu-product">
+                                        <div class="product_img">
+                                            <img src="{{ product.featured_image | img_url: 'small' }}" alt="{{ product.title }}" class="img-fluid">
+                                        </div>
+                                        <p class="product-price">{{ product.price | money }}</p>
+                                        <p class="product-title">{{ product.title }}</p>
+                                      </div>
+                                    {% endfor %}
+                                  </div>
+                                  <div class="text-end mt-4">
+                                    <a href="{{ collection.url }}" class="ck-button base-btn">View All <i class="fa-solid fa-arrow-right"></i></a>
+                                  </div>
+                                </div>
+                              </div>
+                            {% endif %}
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      
+      <!-- Header Meta Section -->
+      <div class="col-md-3">
+          <div class="header_meta d-flex align-items-center justify-content-end">
+            <!-- Dynamic Contact Us Button -->
+            <a class="ck-button base-btn" href="/pages/contact">
+              Contact Us
+            </a>
+          
+            <!-- Dynamic Add to Cart Button -->
+            <div class="header-wishlist">
+              <a href="#" class="wishlist_meta">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10.5 22C11.3284 22 12 21.3284 12 20.5C12 19.6716 11.3284 19 10.5 19C9.67157 19 9 19.6716 9 20.5C9 21.3284 9.67157 22 10.5 22Z" stroke="white" stroke-width="1.5"/>
+                  <path d="M17.5 22C18.3284 22 19 21.3284 19 20.5C19 19.6716 18.3284 19 17.5 19C16.6716 19 16 19.6716 16 20.5C16 21.3284 16.6716 22 17.5 22Z" stroke="white" stroke-width="1.5"/>
+                </svg>
+              </a>
+              <div class="wishlist-dropdown" id="wishlistDropdown">
+                <div class="wishlist-items">
+                  <h5>Your Wishlist</h5>
+                  <ul id="wishlistList"></ul>
+                  <p id="wishlistEmpty" style="display: none;">Your wishlist is empty.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic User Login Button -->
+            <div class="user_btn">
+              {% if customer %}
+                <a href="/account" class="account-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="white" stroke-width="1.5"/>
+                  </svg>
+                </a>
+              {% else %}
+                <a href="/account/login" class="account-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="white" stroke-width="1.5"/>
+                  </svg>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('#collectionTab a');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('mouseenter', function (event) {
+        event.preventDefault();
+
+        // Deactivate all tabs and hide all tab panes
+        tabs.forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
+
+        // Activate the hovered tab and its corresponding pane
+        tab.classList.add('active');
+        const tabPane = document.querySelector(tab.getAttribute('href'));
+        if (tabPane) {
+          tabPane.classList.add('show', 'active');
+        }
+      });
+    });
+  });
+
+  //add wishlist code here
+  document.addEventListener('DOMContentLoaded', function() {
+    if (!localStorage.getItem('wishlist')) {
+      localStorage.setItem('wishlist', JSON.stringify([]));
+    }
+
+    function toggleWishlist(event, product) {
+      event.preventDefault();
+      let wishlist = JSON.parse(localStorage.getItem('wishlist'));
+      const productId = product.id;
+
+      const existingProductIndex = wishlist.findIndex(item => item.id === productId);
+
+      if (existingProductIndex !== -1) {
+        wishlist.splice(existingProductIndex, 1);
+      } else {
+        wishlist.push({
+          id: productId,
+          title: product.title,
+          image: product.image,
+          price: product.price,
+          inStock: product.inStock,
+        });
+      }
+
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      updateWishlistDisplay();
+    }
+
+    function updateWishlistDisplay() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist'));
+      const wishlistList = document.getElementById('wishlistList');
+      const wishlistEmpty = document.getElementById('wishlistEmpty');
+
+      wishlistList.innerHTML = '';
+
+      if (wishlist.length > 0) {
+  // Create a table for the wishlist items
+  const table = document.createElement('table');
+  table.className = 'wishlist-table';
+
+  // Create the table header row
+  const headerRow = document.createElement('tr');
+  headerRow.innerHTML = `
+    <th>Image</th>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Stock Status</th>
+    <th>Actions</th>
+  `;
+  table.appendChild(headerRow);
+
+  wishlist.forEach(product => {
+    const row = document.createElement('tr');
+    row.className = 'wishlist-item';
+    row.innerHTML = `
+      <td><img src="${product.image}" alt="${product.title}" class="wishlist-item-image"></td>
+      <td><p>${product.title}</p></td>
+      <td class="wishlist-item-price">${product.price}</td>
+      <td class="wishlist-item-stock">${product.inStock ? 'In Stock' : 'Out of Stock'}</td>
+      <td>
+        <button class="remove-from-wishlist" onclick="removeFromWishlist('${product.id}')">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.4581 26H9.54087C8.6487 25.9873 7.79428 25.6436 7.14847 25.0376C6.50265 24.4316 6.11305 23.608 6.05756 22.7314L5.00095 6.91429C4.99554 6.79961 5.01327 6.68501 5.05313 6.57712C5.09299 6.46923 5.15418 6.37018 5.23317 6.28572C5.31455 6.19818 5.41307 6.12774 5.52282 6.07864C5.63256 6.02954 5.75126 6.00279 5.87178 6H22.1272C22.2466 5.99974 22.3648 6.02366 22.4745 6.07026C22.5841 6.11686 22.6828 6.18516 22.7645 6.27091C22.8461 6.35665 22.909 6.45802 22.9492 6.5687C22.9894 6.67938 23.006 6.79701 22.9981 6.91429L21.9879 22.7314C21.9318 23.6158 21.5357 24.4459 20.88 25.0531C20.2243 25.6602 19.3584 25.9988 18.4581 26ZM6.84711 7.71429L7.74116 22.6286C7.7707 23.0783 7.97327 23.5 8.30763 23.8079C8.642 24.1158 9.08301 24.2867 9.54087 24.2857H18.4581C18.9152 24.284 19.3547 24.1122 19.6885 23.8048C20.0222 23.4975 20.2256 23.0773 20.2579 22.6286L21.1984 7.77143L6.84711 7.71429Z" fill="#555558"/>
+          <path d="M25.1154 8H3.88462C3.65 8 3.425 7.89464 3.2591 7.70711C3.0932 7.51957 3 7.26522 3 7C3 6.73478 3.0932 6.48043 3.2591 6.29289C3.425 6.10536 3.65 6 3.88462 6H25.1154C25.35 6 25.575 6.10536 25.7409 6.29289C25.9068 6.48043 26 6.73478 26 7C26 7.26522 25.9068 7.51957 25.7409 7.70711C25.575 7.89464 25.35 8 25.1154 8Z" fill="#555558"/>
+          <path d="M18.1 7H10.9C10.6623 6.99712 10.4352 6.9084 10.267 6.75274C10.0989 6.59708 10.0031 6.38679 10 6.16667V4.16667C10.0152 3.59647 10.2666 3.05351 10.7022 2.6502C11.1378 2.24688 11.7242 2.01409 12.34 2H16.66C17.2861 2.0145 17.8812 2.25501 18.3184 2.67019C18.7556 3.08538 19.0002 3.64235 19 4.22222V6.16667C18.9969 6.38679 18.9011 6.59708 18.733 6.75274C18.5648 6.9084 18.3377 6.99712 18.1 7ZM11.8 5.33333H17.2V4.22222C17.2 4.08961 17.1431 3.96244 17.0418 3.86867C16.9406 3.7749 16.8032 3.72222 16.66 3.72222H12.34C12.1968 3.72222 12.0594 3.7749 11.9582 3.86867C11.8569 3.96244 11.8 4.08961 11.8 4.22222V5.33333Z" fill="#555558"/>
+          <path d="M18 21C17.7359 20.997 17.4835 20.9045 17.2967 20.7423C17.1099 20.5801 17.0035 20.361 17 20.1316V10.8684C17 10.6381 17.1054 10.4172 17.2929 10.2544C17.4804 10.0915 17.7348 10 18 10C18.2652 10 18.5196 10.0915 18.7071 10.2544C18.8946 10.4172 19 10.6381 19 10.8684V20.1316C18.9965 20.361 18.8901 20.5801 18.7033 20.7423C18.5165 20.9045 18.2641 20.997 18 21Z" fill="#555558"/>
+          <path d="M11 21C10.7359 20.997 10.4835 20.9045 10.2967 20.7423C10.1099 20.5801 10.0035 20.361 10 20.1316V10.8684C10 10.6381 10.1054 10.4172 10.2929 10.2544C10.4804 10.0915 10.7348 10 11 10C11.2652 10 11.5196 10.0915 11.7071 10.2544C11.8946 10.4172 12 10.6381 12 10.8684V20.1316C11.9965 20.361 11.8901 20.5801 11.7033 20.7423C11.5165 20.9045 11.2641 20.997 11 21Z" fill="#555558"/>
+          <path d="M14 21C13.7359 20.997 13.4835 20.9045 13.2967 20.7423C13.1099 20.5801 13.0035 20.361 13 20.1316V10.8684C13 10.6381 13.1054 10.4172 13.2929 10.2544C13.4804 10.0915 13.7348 10 14 10C14.2652 10 14.5196 10.0915 14.7071 10.2544C14.8946 10.4172 15 10.6381 15 10.8684V20.1316C14.9965 20.361 14.8901 20.5801 14.7033 20.7423C14.5165 20.9045 14.2641 20.997 14 21Z" fill="#555558"/>
+          </svg>
+        </button>
+        <a href="/cart/add/${product.id}" class="ck-button base-btn">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="18" fill="#19191C"/>
+          <path d="M14.6316 21.2L13.8992 21.3618L14.0292 21.95H14.6316V21.2ZM25.7987 15.6553L25.065 15.4998L25.065 15.4998L25.7987 15.6553ZM25.8586 13.9161L25.2629 14.3717L25.2629 14.3717L25.8586 13.9161ZM12.9474 12.85C12.5331 12.85 12.1974 13.1858 12.1974 13.6C12.1974 14.0142 12.5331 14.35 12.9474 14.35V12.85ZM12.4242 11.2119L13.1565 11.0501L13.1533 11.0355L13.1495 11.0211L12.4242 11.2119ZM10 9.25C9.58579 9.25 9.25 9.58579 9.25 10C9.25 10.4142 9.58579 10.75 10 10.75V9.25ZM15.3726 21.95C15.7868 21.95 16.1226 21.6142 16.1226 21.2C16.1226 20.7858 15.7868 20.45 15.3726 20.45V21.95ZM14.6316 21.95H20.7479V20.45H14.6316V21.95ZM20.7479 21.95C22.8099 21.95 24.1574 21.32 25.0374 20.0999C25.8511 18.9716 26.1927 17.4138 26.5324 15.8107L25.065 15.4998C24.7077 17.1861 24.4134 18.4007 23.8208 19.2224C23.2944 19.9523 22.465 20.45 20.7479 20.45V21.95ZM26.5324 15.8108C26.6283 15.3582 26.7181 14.9428 26.7428 14.6026C26.7686 14.2459 26.7364 13.8291 26.4543 13.4604L25.2629 14.3717C25.2226 14.319 25.2609 14.2975 25.2467 14.4942C25.2312 14.7074 25.1702 15.0036 25.065 15.4998L26.5324 15.8108ZM26.4543 13.4604C26.1663 13.0839 25.7675 12.9516 25.4113 12.8979C25.0804 12.848 24.6655 12.85 24.2266 12.85V14.35C24.7145 14.35 24.9947 14.352 25.1876 14.3811C25.3553 14.4064 25.3091 14.4321 25.2629 14.3717L26.4543 13.4604ZM24.2266 12.85H12.9474V14.35H24.2266V12.85ZM15.3639 21.0382L13.1565 11.0501L11.6919 11.3738L13.8992 21.3618L15.3639 21.0382ZM13.1495 11.0211C12.8695 9.95695 11.8801 9.25 10.7903 9.25V10.75C11.2461 10.75 11.604 11.0424 11.6989 11.4028L13.1495 11.0211ZM10.7903 9.25H10V10.75H10.7903V9.25ZM15.3726 20.45H15.0262V21.95H15.3726V20.45ZM15.0262 20.45C13.4713 20.45 12.1974 21.6994 12.1974 23.2571H13.6974C13.6974 22.5426 14.2849 21.95 15.0262 21.95V20.45ZM12.1974 23.2571C12.1974 23.868 12.6956 24.35 13.2938 24.35V22.85C13.5093 22.85 13.6974 23.0249 13.6974 23.2571H12.1974ZM13.2938 24.35H22.6316V22.85H13.2938V24.35ZM17.25 24.8C17.25 25.0127 17.057 25.25 16.7368 25.25V26.75C17.812 26.75 18.75 25.9127 18.75 24.8H17.25ZM16.7368 25.25C16.4167 25.25 16.2237 25.0127 16.2237 24.8H14.7237C14.7237 25.9127 15.6617 26.75 16.7368 26.75V25.25ZM16.2237 24.8C16.2237 24.5873 16.4167 24.35 16.7368 24.35V22.85C15.6617 22.85 14.7237 23.6873 14.7237 24.8H16.2237ZM16.7368 24.35C17.057 24.35 17.25 24.5873 17.25 24.8H18.75C18.75 23.6873 17.812 22.85 16.7368 22.85V24.35ZM23.1447 24.8C23.1447 25.0127 22.9517 25.25 22.6316 25.25V26.75C23.7067 26.75 24.6447 25.9127 24.6447 24.8H23.1447ZM22.6316 25.25C22.3114 25.25 22.1184 25.0127 22.1184 24.8H20.6184C20.6184 25.9127 21.5564 26.75 22.6316 26.75V25.25ZM22.1184 24.8C22.1184 24.5873 22.3114 24.35 22.6316 24.35V22.85C21.5564 22.85 20.6184 23.6873 20.6184 24.8H22.1184ZM22.6316 24.35C22.9517 24.35 23.1447 24.5873 23.1447 24.8H24.6447C24.6447 23.6873 23.7067 22.85 22.6316 22.85V24.35Z" fill="white"/>
+          </svg>
+          Add to Cart
+        </a>
+      </td>
+    `;
+    table.appendChild(row);
+  });
+
+  // Replace wishlistList with the table
+  wishlistList.innerHTML = '';  // Clear any existing content
+  wishlistList.appendChild(table);
+  wishlistEmpty.style.display = 'none';
+} else {
+  wishlistEmpty.style.display = 'block';
+}
+
+    }
+
+    window.removeFromWishlist = function(productId) {
+      console.log('Removing product ID:', productId); // Log the ID being removed
+      let wishlist = JSON.parse(localStorage.getItem('wishlist'));
+      wishlist = wishlist.filter(item => item.id !== productId);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      updateWishlistDisplay(); // Refresh the display
+    };
+
+    updateWishlistDisplay();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Mega menu",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Your Section Title"
+    },
+     {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo"
+    },
+  ],
+  "presets": [
+    {
+      "name": "Mega menu",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
