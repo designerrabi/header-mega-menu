@@ -2,6 +2,13 @@
   .site-header{
       background: #19191C;
   }
+  .wishlist-item td .ck-button:hover svg {
+      filter: brightness(0.5) invert(1);
+  }
+  .mega-menu-product .product_img img {
+    width: auto;
+    height: 100%;
+}
   .site-header .mega-menu {
     width: 100%;
     background: #fff;
@@ -83,18 +90,17 @@
   }
   .wishlist-items .wishlist-table tr th{
     background: #F7F7FC;
-    text-align: center;
     padding: 15px 25px;
     font-size: 18px;
     font-weight: 600;
     color: #000;
+    white-space: nowrap;
   }
   .wishlist-items .wishlist-table tr th{
     border-right:1px solid #ededed; 
   }
   .wishlist-item td{
     border-right:1px solid #ededed; 
-    text-align: center;
     padding: 20px;
     font-size: 16px;
     color: #000;
@@ -128,6 +134,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
+  }
+  .wishlist-item .wishlist-item-stock {
+      white-space: nowrap;
   }
   .wishlist-item td .ck-button svg{
     margin-right: 5px;
@@ -176,6 +186,12 @@
       border-radius: 50px;
       border: 0px solid transparent;
       margin-bottom: 12px;
+      display: block;
+      width: 100%;
+  }
+  .tab_menu_item .nav-link a {
+      color: #19191C;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -185,7 +201,7 @@
   }
   .mega-menu-product-inner {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
   }
   
@@ -194,7 +210,7 @@
   }
   
   .mega-menu-product .product-price {
-      font-size: 12px;
+      font-size: 16px;
       line-height: 1.5;
   }
   
@@ -213,10 +229,187 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 16px;
+        padding: 20px;
   }
   .mega-menu-product-wrapper {
       padding: 20px;
   }
+  .language-selector {
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+     position: relative;
+  }
+  .language-dropdown {
+     display: none;
+     position: absolute;
+     top: 100%;
+     background: #333;
+     border-radius: 4px;
+     overflow: hidden;
+  }
+  .language-selector:hover .language-dropdown {
+     display: block;
+  }
+  .language-dropdown div {
+     display: flex;
+     align-items: center;
+     padding: 5px 10px;
+     color: white;
+  }
+  .language-dropdown div:hover {
+     background: #444;
+  }
+  .desktop-localization-wrapper .dropdown .dropdown-toggle{
+    padding-left: 0px;
+    color: #fff;
+    background: transparent;
+    border: 0px;
+    margin-right: 20px;
+  }
+  .desktop-localization-wrapper .dropdown .dropdown-toggle img{
+    border-radius: 3px;
+  }
+  .dropdown-menu{
+    border: 0px;
+  }
+  .dropdown-toggle::after{
+    border: 0px;
+    content: "\f107";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    vertical-align: baseline;
+  }
+  .dropdown-menu .dropdown-item{
+    font-size: 16px;
+  }
+  .wishlist_meta i {
+      font-size: 20px;
+      color: #fff;
+      transform: translateY(4px);
+  }
+  .offcanvas_inner .btn-close{
+      width: 30px;
+      height: 30px;
+      background: #FFA800;
+      border-radius: 1000px;
+      opacity: 1;
+      color: #19191C;
+      margin-bottom: 24px;
+      margin-top: 24px;
+  }
+  
+  .offcanvas_inner .nav .nav-link {
+      color: #fff;
+  }
+  div#offcanvasExample {
+      background-color: #19191C;
+    padding: 20px 24px;
+  }
+  .offcanvas_inner .nav .nav-link {
+      padding: 0;
+  }
+  
+  .offcanvas_inner li.nav-item.dropdown  {
+      display: block;
+      width: 100%;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid rgb(255 255 255 / 20%);
+  }
+  
+  .offcanvas_inner li.nav-item .dropdown-menu {
+      display: none;
+  }
+  .offcanvas_inner li.nav-item.active .dropdown-menu {
+      display: block;
+      position: relative !important;
+      transform: translate3d(0px, 0px, 0px) !important;
+      border-radius: 16px;
+      margin-top: 10px !important;
+      padding: 0;
+  }
+  .offcanvas_inner .accordion-button::after{
+      font-size: 18px;
+      transform: rotate(-90deg);
+      background: transparent;
+      content: "\f078";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+  }
+  .offcanvas_inner .dropdown-toggle::after {
+      right: 0;
+      position: absolute;
+  }
+  .offcanvas_inner .accordion .accordion-button:not(.collapsed)::after {
+      transform: rotate(0deg);
+  }
+  .offcanvas_inner .mega-menu-product-wrapper {
+      padding: 0;
+  }
+  
+  .offcanvas .accordion-body {
+      padding: 0 16px;
+  }
+  
+  .offcanvas_inner .accordion .accordion-button {
+      padding: 16px;
+  }
+  .offcanvas_inner .dropdown-toggle {
+      position: relative;
+  }
+  
+  .offcanvas_inner .accordion {
+      background-color: transparent;
+  }
+  
+  .offcanvas_inner .accordion .accordion-button {
+      font-size: 16px;
+      font-weight: 500;
+      background-color: transparent;
+      box-shadow: none;
+  }
+  .offcanvas_inner .accordion .accordion-button:not(.collapsed) {
+      color: #FFA800;
+      background-color: transparent;
+      box-shadow: none;
+  }
+  .offcanvas_inner .accordion .accordion-item {
+      border: 0px solid transparent;
+  }
+  .offcanvas_inner .main-nav li.nav-item {
+      width: 100%;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgb(255 255 255 / 20%);
+  }
+  /* .offcanvas_inner li.nav-item .dropdown-menu, .offcanvas_inner li.nav-item .dropdown-menu .mega-menu-product-wrapper {
+      max-height: 420px;
+      overflow: scroll;
+  } */
+  .offcanvas_inner .mega-menu-product .product_img {
+      height: 125px;
+      margin-bottom: 10px;
+  }
+  .offcanvas_inner .nav {
+      max-height: 627px;
+      overflow: scroll;
+  }
+ 
+  @media (max-width: 1300px){
+    .announcement-bar .slider-button--next{
+      margin-right: 20px;
+    }
+    .announcement-bar .slider-button--prev{
+      margin-left: 0px;
+    }
+  }
+  @media (max-width: 1200px){
+    .announcement-bar .slider-button--next {
+        margin-right: 0px;
+    }
+  }
+
 
   @media (max-width: 1199px){
     .wishlist-items {
@@ -240,20 +433,106 @@
       white-space: nowrap;
     }
   }
+  @media (max-width: 991px){
+    .announcement-bar .slider-button--next{
+      margin-right: 0px;
+    }
+    ul.nav .dropdown-menu.show{
+        position: relative !important;
+        transform: translate3d(0px, 0px, 0px) !important;
+    }
+     .header_meta .header-wishlist {
+        padding: 18px 0px;
+    }
+   .mega-menu-product-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 576px){
+    div#offcanvasExample{
+      width: 100%;
+    }
+  }
+  @media (max-width: 767px){
+     
+    .wishlist-items .wishlist-table tr{
+      display: none;
+    }
+    .wishlist-items .wishlist-table tr.wishlist-item{
+      display: block !important;
+      border: 0px;
+    }
+    .wishlist-items .wishlist-table tr td{
+      display: none;
+    }
+    .wishlist-items .wishlist-table tr td:first-child,.wishlist-items .wishlist-table tr td:nth-child(2){
+      display: table-cell;
+      border: 0px;
+      text-align: left;
+    }
+    .wishlist-items .wishlist-table tr td:nth-child(2){
+      width: 100%;
+    }
+    .wishlist-item td p {
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    .wishlist-item td .remove-from-wishlist{
+      top: 0;
+    }
+    .wishlist-item td .d-flex{
+      margin-top: 5px;
+      justify-content: space-between;
+    }
+    .wishlist-item td .ck-button{
+      width: 30px;
+      text-align: center;
+      border-radius: 3px;
+    }
+    .wishlist-item td .ck-button svg{
+      margin-right: 0px;
+    }
+    .wishlist-item td .ck-button svg path{
+      stroke: #fff;
+    }
+    .wishlist-item td .remove-from-wishlist svg{
+      width: 20px;
+    }
+    .wishlist-items .wishlist-table tr td:first-child{
+      padding-right: 0px;
+    }
+    .wishlist-items h5{
+      text-align: center;
+      font-size: 30px;
+    }
+    .mega-menu-product-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
 </style>
 
 <header class="site-header">
   <div class="container">
     <div class="row align-items-center position-relative">
+      <div class="col-4 d-lg-none">
+          <a class="offcanvus_icon" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="20" fill="#FFA800"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8335 14.1667C11.8335 13.8572 11.9564 13.5605 12.1752 13.3417C12.394 13.1229 12.6907 13 13.0002 13H27.0002C27.3096 13 27.6063 13.1229 27.8251 13.3417C28.0439 13.5605 28.1668 13.8572 28.1668 14.1667C28.1668 14.4761 28.0439 14.7728 27.8251 14.9916C27.6063 15.2104 27.3096 15.3333 27.0002 15.3333H13.0002C12.6907 15.3333 12.394 15.2104 12.1752 14.9916C11.9564 14.7728 11.8335 14.4761 11.8335 14.1667ZM11.8335 20C11.8335 19.6906 11.9564 19.3938 12.1752 19.175C12.394 18.9562 12.6907 18.8333 13.0002 18.8333H27.0002C27.3096 18.8333 27.6063 18.9562 27.8251 19.175C28.0439 19.3938 28.1668 19.6906 28.1668 20C28.1668 20.3094 28.0439 20.6062 27.8251 20.825C27.6063 21.0437 27.3096 21.1667 27.0002 21.1667H13.0002C12.6907 21.1667 12.394 21.0437 12.1752 20.825C11.9564 20.6062 11.8335 20.3094 11.8335 20ZM11.8335 25.8333C11.8335 25.5239 11.9564 25.2272 12.1752 25.0084C12.394 24.7896 12.6907 24.6667 13.0002 24.6667H27.0002C27.3096 24.6667 27.6063 24.7896 27.8251 25.0084C28.0439 25.2272 28.1668 25.5239 28.1668 25.8333C28.1668 26.1428 28.0439 26.4395 27.8251 26.6583C27.6063 26.8771 27.3096 27 27.0002 27H13.0002C12.6907 27 12.394 26.8771 12.1752 26.6583C11.9564 26.4395 11.8335 26.1428 11.8335 25.8333Z" fill="#19191C"/>
+            </svg>
+          </a>
+      </div>
       <!-- Logo Section -->
-      <div class="col-md-2">
+      <div class="col-4 col-lg-2">
         <a href="{{ shop.url }}">
-          <img src="{{ section.settings.logo_image | img_url: 'master' }}" alt="logo">
+          <img src="{{ section.settings.logo_image | img_url: 'master' }}" alt="logo" class="img-fluid">
         </a>
       </div>
 
       <!-- Main Navigation & Mega Menu Trigger -->
-      <div class="col-md-7 d-flex align-items-center">
+      <div class="col-lg-6 d-flex align-items-center d-none d-lg-inline-block">
         <nav class="main-nav">
           <ul class="nav">
             <!-- Loop through main menu items dynamically -->
@@ -276,16 +555,16 @@
                           {% for collection in collections %}
                             {% if collection.products_count > 0 %}
                               <li class="nav-item">
-                                <a 
+                                <button  
                                   class="nav-link {% if forloop.first %}active{% endif %}" 
                                   id="tab-{{ collection.id }}" 
                                   data-bs-toggle="tab" 
-                                  href="#content-{{ collection.id }}" 
+                                  data-bs-target="#content-{{ collection.id }}" 
                                   role="tab" 
                                   aria-controls="content-{{ collection.id }}" 
                                   aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
-                                  {{ collection.title }} <i class="fa-solid fa-chevron-right"></i>
-                                </a>
+                                       <a href="{{ collection.url }}">{{ collection.title }} <i class="fa-solid fa-chevron-right"></i></a>
+                                </button>
                               </li>
                             {% endif %}
                           {% endfor %}
@@ -304,14 +583,14 @@
                                 aria-labelledby="tab-{{ collection.id }}">
                                 <div class="mega-menu-product-wrapper">
                                   <div class="mega-menu-product-inner">
-                                    {% for product in collection.products limit: 5 %}
-                                      <div class="mega-menu-product">
+                                    {% for product in collection.products limit: 4 %}
+                                      <a href="{{ product.url }}" class="mega-menu-product">
                                         <div class="product_img">
                                             <img src="{{ product.featured_image | img_url: 'small' }}" alt="{{ product.title }}" class="img-fluid">
                                         </div>
                                         <p class="product-price">{{ product.price | money }}</p>
                                         <p class="product-title">{{ product.title }}</p>
-                                      </div>
+                                      </a>
                                     {% endfor %}
                                   </div>
                                   <div class="text-end mt-4">
@@ -333,10 +612,36 @@
       </div>
       
       <!-- Header Meta Section -->
-      <div class="col-md-3">
+      <div class="col-4 col-lg-4">
           <div class="header_meta d-flex align-items-center justify-content-end">
+           <div class="desktop-localization-wrapper d-none d-lg-inline-block">
+              <!-- Language Selector Dropdown -->
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img id="selectedFlag" src="" alt="flag" width="24" height="18">
+                  <span id="selectedLanguage"></span>
+                </button>
+                
+                <!-- Dropdown menu -->
+                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                  <li>
+                    <a href="?locale=en" class="dropdown-item" onclick="setLanguage('en')">
+                      <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/us.svg" alt="English Flag" width="24" height="18">
+                      English
+                    </a>
+                  </li>
+                  <li>
+                    <a href="?locale=nl" class="dropdown-item" onclick="setLanguage('nl')">
+                      <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/nl.svg" alt="Dutch Flag" width="24" height="18">
+                      Dutch
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
             <!-- Dynamic Contact Us Button -->
-            <a class="ck-button base-btn" href="/pages/contact">
+            <a class="ck-button base-btn d-none d-lg-inline-block" href="/pages/contact">
               Contact Us
             </a>
           
@@ -344,12 +649,14 @@
             <div class="header-wishlist">
               <a href="#" class="wishlist_meta">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10.5 22C11.3284 22 12 21.3284 12 20.5C12 19.6716 11.3284 19 10.5 19C9.67157 19 9 19.6716 9 20.5C9 21.3284 9.67157 22 10.5 22Z" stroke="white" stroke-width="1.5"/>
-                  <path d="M17.5 22C18.3284 22 19 21.3284 19 20.5C19 19.6716 18.3284 19 17.5 19C16.6716 19 16 19.6716 16 20.5C16 21.3284 16.6716 22 17.5 22Z" stroke="white" stroke-width="1.5"/>
+                <path d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.5 22C11.3284 22 12 21.3284 12 20.5C12 19.6716 11.3284 19 10.5 19C9.67157 19 9 19.6716 9 20.5C9 21.3284 9.67157 22 10.5 22Z" stroke="white" stroke-width="1.5"/>
+                <path d="M17.5 22C18.3284 22 19 21.3284 19 20.5C19 19.6716 18.3284 19 17.5 19C16.6716 19 16 19.6716 16 20.5C16 21.3284 16.6716 22 17.5 22Z" stroke="white" stroke-width="1.5"/>
                 </svg>
+
+
               </a>
               <div class="wishlist-dropdown" id="wishlistDropdown">
                 <div class="wishlist-items">
@@ -384,21 +691,242 @@
   </div>
 </header>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const tabs = document.querySelectorAll('#collectionTab a');
+                    
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvus_header">
+    <div class="row align-items-center position-relative">
+      <div class="col-4 d-lg-none">
+          <a class="offcanvus_icon" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="20" fill="#FFA800"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8335 14.1667C11.8335 13.8572 11.9564 13.5605 12.1752 13.3417C12.394 13.1229 12.6907 13 13.0002 13H27.0002C27.3096 13 27.6063 13.1229 27.8251 13.3417C28.0439 13.5605 28.1668 13.8572 28.1668 14.1667C28.1668 14.4761 28.0439 14.7728 27.8251 14.9916C27.6063 15.2104 27.3096 15.3333 27.0002 15.3333H13.0002C12.6907 15.3333 12.394 15.2104 12.1752 14.9916C11.9564 14.7728 11.8335 14.4761 11.8335 14.1667ZM11.8335 20C11.8335 19.6906 11.9564 19.3938 12.1752 19.175C12.394 18.9562 12.6907 18.8333 13.0002 18.8333H27.0002C27.3096 18.8333 27.6063 18.9562 27.8251 19.175C28.0439 19.3938 28.1668 19.6906 28.1668 20C28.1668 20.3094 28.0439 20.6062 27.8251 20.825C27.6063 21.0437 27.3096 21.1667 27.0002 21.1667H13.0002C12.6907 21.1667 12.394 21.0437 12.1752 20.825C11.9564 20.6062 11.8335 20.3094 11.8335 20ZM11.8335 25.8333C11.8335 25.5239 11.9564 25.2272 12.1752 25.0084C12.394 24.7896 12.6907 24.6667 13.0002 24.6667H27.0002C27.3096 24.6667 27.6063 24.7896 27.8251 25.0084C28.0439 25.2272 28.1668 25.5239 28.1668 25.8333C28.1668 26.1428 28.0439 26.4395 27.8251 26.6583C27.6063 26.8771 27.3096 27 27.0002 27H13.0002C12.6907 27 12.394 26.8771 12.1752 26.6583C11.9564 26.4395 11.8335 26.1428 11.8335 25.8333Z" fill="#19191C"/>
+            </svg>
+          </a>
+      </div>
+      <!-- Logo Section -->
+      <div class="col-4 col-lg-2">
+        <a href="{{ shop.url }}">
+          <img src="{{ section.settings.logo_image | img_url: 'master' }}" alt="logo" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-4 col-lg-2">
+        <div class="header_meta d-flex align-items-center justify-content-end">
+            <div class="header-wishlist">
+                <a href="#" class="wishlist_meta">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10.5 22C11.3284 22 12 21.3284 12 20.5C12 19.6716 11.3284 19 10.5 19C9.67157 19 9 19.6716 9 20.5C9 21.3284 9.67157 22 10.5 22Z" stroke="white" stroke-width="1.5"/>
+      <path d="M17.5 22C18.3284 22 19 21.3284 19 20.5C19 19.6716 18.3284 19 17.5 19C16.6716 19 16 19.6716 16 20.5C16 21.3284 16.6716 22 17.5 22Z" stroke="white" stroke-width="1.5"/>
+      </svg>
     
+                </a>
+                <div class="wishlist-dropdown" id="wishlistDropdown">
+                  <div class="wishlist-items">
+                    <h5>Your Wishlist</h5>
+                    <ul id="wishlistList"></ul>
+                    <p id="wishlistEmpty" style="display: none;">Your wishlist is empty.</p>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Dynamic User Login Button -->
+              <div class="user_btn">
+                {% if customer %}
+                  <a href="/account" class="account-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="white" stroke-width="1.5"/>
+                    </svg>
+                  </a>
+                {% else %}
+                  <a href="/account/login" class="account-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="white" stroke-width="1.5"/>
+                    </svg>
+                  </a>
+                {% endif %}
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas_inner position-relative">
+    <div class="text-end">
+      <button type="button" class="btn-close offcanvus_close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <nav class="main-nav">
+      <ul class="nav">
+        {% for link in linklists.main-menu.links %}
+          <li class="nav-item {% if link.links.size > 0 %}dropdown position-static{% endif %}">
+            <a href="{{ link.url }}" 
+               class="nav-link {% if link.links.size > 0 %}dropdown-toggle{% endif %}" 
+               {% if link.links.size > 0 %}data-bs-toggle="dropdown"{% endif %}>
+              {{ link.title }}
+            </a>
+    
+            {% if link.links.size > 0 %}
+              <!-- Mega Menu Dropdown -->
+              <div class="dropdown-menu mega-menu">
+                <div class="accordion" id="collectionAccordion-{{ link.title | handle }}">
+                  {% assign collections = collections | where: "published", true %}
+                  {% for collection in collections %}
+                    {% if collection.products_count > 0 %}
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-{{ collection.id }}">
+                          <button 
+                            class="accordion-button collapsed" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#collapse-{{ collection.id }}" 
+                            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" 
+                            aria-controls="collapse-{{ collection.id }}">
+                            {{ collection.title }}
+                          </button>
+                        </h2>
+                        <div 
+                          id="collapse-{{ collection.id }}" 
+                          class="accordion-collapse collapse" 
+                          aria-labelledby="heading-{{ collection.id }}" 
+                          data-bs-parent="#collectionAccordion-{{ link.title | handle }}">
+                          <div class="accordion-body">
+                            <div class="mega-menu-product-wrapper">
+                              <div class="mega-menu-product-inner">
+                                {% for product in collection.products limit: 4 %}
+                                  <a href="{{ product.url }}" class="mega-menu-product d-block text-center">
+                                    <div class="product_img">
+                                        <img src="{{ product.featured_image | img_url: 'small' }}" alt="{{ product.title }}" class="img-fluid">
+                                    </div>
+                                    <p class="product-title mb-0">{{ product.title }}</p>
+                                  </a>
+                                {% endfor %}
+                              </div>
+                              <div class="text-end mt-4">
+                                <a href="{{ collection.url }}" class="ck-button base-btn w-100 text-center">View All <i class="fa-solid fa-arrow-right"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
+<script>
+   document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(event) {
+      event.preventDefault();
+      
+      const parentDropdown = this.closest('.nav-item.dropdown');
+  
+      // Remove 'active' class from all other dropdowns
+      document.querySelectorAll('.nav-item.dropdown.active').forEach(function(openDropdown) {
+        if (openDropdown !== parentDropdown) {
+          openDropdown.classList.remove('active');
+        }
+      });
+  
+      // Toggle 'active' class on the clicked dropdown's parent
+      if (parentDropdown.classList.contains('active')) {
+        parentDropdown.classList.remove('active');
+      } else {
+        parentDropdown.classList.add('active');
+      }
+    });
+  });
+  
+  // Close dropdown if clicking outside
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('.nav-item.dropdown')) {
+      document.querySelectorAll('.nav-item.dropdown.active').forEach(function(dropdown) {
+        dropdown.classList.remove('active');
+      });
+    }
+  });
+
+
+  
+   // JavaScript function to update the selected language display
+  // Function to set a cookie
+  function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+
+  // Function to get a cookie
+  function getCookie(name) {
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let cookies = decodedCookie.split(';');
+    name = name + "=";
+    for (let i = 0; i < cookies.length; i++) {
+      let c = cookies[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  // Function to set the language and save it in a cookie
+  function setLanguage(languageCode) {
+    setCookie("selectedLanguage", languageCode, 30); // Save for 30 days
+    updateLanguageDisplay(languageCode);
+  }
+
+  // Function to update language display based on the selected language code
+  function updateLanguageDisplay(languageCode) {
+    const selectedLanguage = document.getElementById("selectedLanguage");
+    const selectedFlag = document.getElementById("selectedFlag");
+
+    if (languageCode === "en") {
+      selectedLanguage.textContent = "English";
+      selectedFlag.src = "https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/us.svg";
+    } else if (languageCode === "nl") {
+      selectedLanguage.textContent = "Dutch";
+      selectedFlag.src = "https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/nl.svg";
+    }
+  }
+
+  // On page load, check for the saved language in cookies and set it
+  document.addEventListener("DOMContentLoaded", function() {
+    let savedLanguage = getCookie("selectedLanguage");
+    if (savedLanguage) {
+      updateLanguageDisplay(savedLanguage);
+    } else {
+      // Default language if no cookie is set
+      updateLanguageDisplay("en");
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('#collectionTab button');
+  
     tabs.forEach(tab => {
       tab.addEventListener('mouseenter', function (event) {
         event.preventDefault();
-
+  
         // Deactivate all tabs and hide all tab panes
         tabs.forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
-
+  
         // Activate the hovered tab and its corresponding pane
         tab.classList.add('active');
-        const tabPane = document.querySelector(tab.getAttribute('href'));
+        const tabPane = document.querySelector(tab.getAttribute('data-bs-target'));
         if (tabPane) {
           tabPane.classList.add('show', 'active');
         }
@@ -406,109 +934,128 @@
     });
   });
 
+
+
   //add wishlist code here
   document.addEventListener('DOMContentLoaded', function() {
-    if (!localStorage.getItem('wishlist')) {
-      localStorage.setItem('wishlist', JSON.stringify([]));
+  if (!localStorage.getItem('wishlist')) {
+    localStorage.setItem('wishlist', JSON.stringify([]));
+  }
+
+  function toggleWishlist(event, product) {
+    event.preventDefault();
+    let wishlist = JSON.parse(localStorage.getItem('wishlist'));
+    const productId = product.id;
+    const existingProductIndex = wishlist.findIndex(item => item.id === productId);
+
+    if (existingProductIndex !== -1) {
+      wishlist.splice(existingProductIndex, 1);
+    } else {
+      wishlist.push({
+        id: productId,
+        title: product.title,
+        image: product.image,
+        price: product.price,
+        inStock: product.inStock,
+      });
     }
 
-    function toggleWishlist(event, product) {
-      event.preventDefault();
-      let wishlist = JSON.parse(localStorage.getItem('wishlist'));
-      const productId = product.id;
-
-      const existingProductIndex = wishlist.findIndex(item => item.id === productId);
-
-      if (existingProductIndex !== -1) {
-        wishlist.splice(existingProductIndex, 1);
-      } else {
-        wishlist.push({
-          id: productId,
-          title: product.title,
-          image: product.image,
-          price: product.price,
-          inStock: product.inStock,
-        });
-      }
-
-      localStorage.setItem('wishlist', JSON.stringify(wishlist));
-      updateWishlistDisplay();
-    }
-
-    function updateWishlistDisplay() {
-      const wishlist = JSON.parse(localStorage.getItem('wishlist'));
-      const wishlistList = document.getElementById('wishlistList');
-      const wishlistEmpty = document.getElementById('wishlistEmpty');
-
-      wishlistList.innerHTML = '';
-
-      if (wishlist.length > 0) {
-  // Create a table for the wishlist items
-  const table = document.createElement('table');
-  table.className = 'wishlist-table';
-
-  // Create the table header row
-  const headerRow = document.createElement('tr');
-  headerRow.innerHTML = `
-    <th>Image</th>
-    <th>Product</th>
-    <th>Price</th>
-    <th>Stock Status</th>
-    <th>Actions</th>
-  `;
-  table.appendChild(headerRow);
-
-  wishlist.forEach(product => {
-    const row = document.createElement('tr');
-    row.className = 'wishlist-item';
-    row.innerHTML = `
-      <td><img src="${product.image}" alt="${product.title}" class="wishlist-item-image"></td>
-      <td><p>${product.title}</p></td>
-      <td class="wishlist-item-price">${product.price}</td>
-      <td class="wishlist-item-stock">${product.inStock ? 'In Stock' : 'Out of Stock'}</td>
-      <td>
-        <button class="remove-from-wishlist" onclick="removeFromWishlist('${product.id}')">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.4581 26H9.54087C8.6487 25.9873 7.79428 25.6436 7.14847 25.0376C6.50265 24.4316 6.11305 23.608 6.05756 22.7314L5.00095 6.91429C4.99554 6.79961 5.01327 6.68501 5.05313 6.57712C5.09299 6.46923 5.15418 6.37018 5.23317 6.28572C5.31455 6.19818 5.41307 6.12774 5.52282 6.07864C5.63256 6.02954 5.75126 6.00279 5.87178 6H22.1272C22.2466 5.99974 22.3648 6.02366 22.4745 6.07026C22.5841 6.11686 22.6828 6.18516 22.7645 6.27091C22.8461 6.35665 22.909 6.45802 22.9492 6.5687C22.9894 6.67938 23.006 6.79701 22.9981 6.91429L21.9879 22.7314C21.9318 23.6158 21.5357 24.4459 20.88 25.0531C20.2243 25.6602 19.3584 25.9988 18.4581 26ZM6.84711 7.71429L7.74116 22.6286C7.7707 23.0783 7.97327 23.5 8.30763 23.8079C8.642 24.1158 9.08301 24.2867 9.54087 24.2857H18.4581C18.9152 24.284 19.3547 24.1122 19.6885 23.8048C20.0222 23.4975 20.2256 23.0773 20.2579 22.6286L21.1984 7.77143L6.84711 7.71429Z" fill="#555558"/>
-          <path d="M25.1154 8H3.88462C3.65 8 3.425 7.89464 3.2591 7.70711C3.0932 7.51957 3 7.26522 3 7C3 6.73478 3.0932 6.48043 3.2591 6.29289C3.425 6.10536 3.65 6 3.88462 6H25.1154C25.35 6 25.575 6.10536 25.7409 6.29289C25.9068 6.48043 26 6.73478 26 7C26 7.26522 25.9068 7.51957 25.7409 7.70711C25.575 7.89464 25.35 8 25.1154 8Z" fill="#555558"/>
-          <path d="M18.1 7H10.9C10.6623 6.99712 10.4352 6.9084 10.267 6.75274C10.0989 6.59708 10.0031 6.38679 10 6.16667V4.16667C10.0152 3.59647 10.2666 3.05351 10.7022 2.6502C11.1378 2.24688 11.7242 2.01409 12.34 2H16.66C17.2861 2.0145 17.8812 2.25501 18.3184 2.67019C18.7556 3.08538 19.0002 3.64235 19 4.22222V6.16667C18.9969 6.38679 18.9011 6.59708 18.733 6.75274C18.5648 6.9084 18.3377 6.99712 18.1 7ZM11.8 5.33333H17.2V4.22222C17.2 4.08961 17.1431 3.96244 17.0418 3.86867C16.9406 3.7749 16.8032 3.72222 16.66 3.72222H12.34C12.1968 3.72222 12.0594 3.7749 11.9582 3.86867C11.8569 3.96244 11.8 4.08961 11.8 4.22222V5.33333Z" fill="#555558"/>
-          <path d="M18 21C17.7359 20.997 17.4835 20.9045 17.2967 20.7423C17.1099 20.5801 17.0035 20.361 17 20.1316V10.8684C17 10.6381 17.1054 10.4172 17.2929 10.2544C17.4804 10.0915 17.7348 10 18 10C18.2652 10 18.5196 10.0915 18.7071 10.2544C18.8946 10.4172 19 10.6381 19 10.8684V20.1316C18.9965 20.361 18.8901 20.5801 18.7033 20.7423C18.5165 20.9045 18.2641 20.997 18 21Z" fill="#555558"/>
-          <path d="M11 21C10.7359 20.997 10.4835 20.9045 10.2967 20.7423C10.1099 20.5801 10.0035 20.361 10 20.1316V10.8684C10 10.6381 10.1054 10.4172 10.2929 10.2544C10.4804 10.0915 10.7348 10 11 10C11.2652 10 11.5196 10.0915 11.7071 10.2544C11.8946 10.4172 12 10.6381 12 10.8684V20.1316C11.9965 20.361 11.8901 20.5801 11.7033 20.7423C11.5165 20.9045 11.2641 20.997 11 21Z" fill="#555558"/>
-          <path d="M14 21C13.7359 20.997 13.4835 20.9045 13.2967 20.7423C13.1099 20.5801 13.0035 20.361 13 20.1316V10.8684C13 10.6381 13.1054 10.4172 13.2929 10.2544C13.4804 10.0915 13.7348 10 14 10C14.2652 10 14.5196 10.0915 14.7071 10.2544C14.8946 10.4172 15 10.6381 15 10.8684V20.1316C14.9965 20.361 14.8901 20.5801 14.7033 20.7423C14.5165 20.9045 14.2641 20.997 14 21Z" fill="#555558"/>
-          </svg>
-        </button>
-        <a href="/cart/add/${product.id}" class="ck-button base-btn">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="36" height="36" rx="18" fill="#19191C"/>
-          <path d="M14.6316 21.2L13.8992 21.3618L14.0292 21.95H14.6316V21.2ZM25.7987 15.6553L25.065 15.4998L25.065 15.4998L25.7987 15.6553ZM25.8586 13.9161L25.2629 14.3717L25.2629 14.3717L25.8586 13.9161ZM12.9474 12.85C12.5331 12.85 12.1974 13.1858 12.1974 13.6C12.1974 14.0142 12.5331 14.35 12.9474 14.35V12.85ZM12.4242 11.2119L13.1565 11.0501L13.1533 11.0355L13.1495 11.0211L12.4242 11.2119ZM10 9.25C9.58579 9.25 9.25 9.58579 9.25 10C9.25 10.4142 9.58579 10.75 10 10.75V9.25ZM15.3726 21.95C15.7868 21.95 16.1226 21.6142 16.1226 21.2C16.1226 20.7858 15.7868 20.45 15.3726 20.45V21.95ZM14.6316 21.95H20.7479V20.45H14.6316V21.95ZM20.7479 21.95C22.8099 21.95 24.1574 21.32 25.0374 20.0999C25.8511 18.9716 26.1927 17.4138 26.5324 15.8107L25.065 15.4998C24.7077 17.1861 24.4134 18.4007 23.8208 19.2224C23.2944 19.9523 22.465 20.45 20.7479 20.45V21.95ZM26.5324 15.8108C26.6283 15.3582 26.7181 14.9428 26.7428 14.6026C26.7686 14.2459 26.7364 13.8291 26.4543 13.4604L25.2629 14.3717C25.2226 14.319 25.2609 14.2975 25.2467 14.4942C25.2312 14.7074 25.1702 15.0036 25.065 15.4998L26.5324 15.8108ZM26.4543 13.4604C26.1663 13.0839 25.7675 12.9516 25.4113 12.8979C25.0804 12.848 24.6655 12.85 24.2266 12.85V14.35C24.7145 14.35 24.9947 14.352 25.1876 14.3811C25.3553 14.4064 25.3091 14.4321 25.2629 14.3717L26.4543 13.4604ZM24.2266 12.85H12.9474V14.35H24.2266V12.85ZM15.3639 21.0382L13.1565 11.0501L11.6919 11.3738L13.8992 21.3618L15.3639 21.0382ZM13.1495 11.0211C12.8695 9.95695 11.8801 9.25 10.7903 9.25V10.75C11.2461 10.75 11.604 11.0424 11.6989 11.4028L13.1495 11.0211ZM10.7903 9.25H10V10.75H10.7903V9.25ZM15.3726 20.45H15.0262V21.95H15.3726V20.45ZM15.0262 20.45C13.4713 20.45 12.1974 21.6994 12.1974 23.2571H13.6974C13.6974 22.5426 14.2849 21.95 15.0262 21.95V20.45ZM12.1974 23.2571C12.1974 23.868 12.6956 24.35 13.2938 24.35V22.85C13.5093 22.85 13.6974 23.0249 13.6974 23.2571H12.1974ZM13.2938 24.35H22.6316V22.85H13.2938V24.35ZM17.25 24.8C17.25 25.0127 17.057 25.25 16.7368 25.25V26.75C17.812 26.75 18.75 25.9127 18.75 24.8H17.25ZM16.7368 25.25C16.4167 25.25 16.2237 25.0127 16.2237 24.8H14.7237C14.7237 25.9127 15.6617 26.75 16.7368 26.75V25.25ZM16.2237 24.8C16.2237 24.5873 16.4167 24.35 16.7368 24.35V22.85C15.6617 22.85 14.7237 23.6873 14.7237 24.8H16.2237ZM16.7368 24.35C17.057 24.35 17.25 24.5873 17.25 24.8H18.75C18.75 23.6873 17.812 22.85 16.7368 22.85V24.35ZM23.1447 24.8C23.1447 25.0127 22.9517 25.25 22.6316 25.25V26.75C23.7067 26.75 24.6447 25.9127 24.6447 24.8H23.1447ZM22.6316 25.25C22.3114 25.25 22.1184 25.0127 22.1184 24.8H20.6184C20.6184 25.9127 21.5564 26.75 22.6316 26.75V25.25ZM22.1184 24.8C22.1184 24.5873 22.3114 24.35 22.6316 24.35V22.85C21.5564 22.85 20.6184 23.6873 20.6184 24.8H22.1184ZM22.6316 24.35C22.9517 24.35 23.1447 24.5873 23.1447 24.8H24.6447C24.6447 23.6873 23.7067 22.85 22.6316 22.85V24.35Z" fill="white"/>
-          </svg>
-          Add to Cart
-        </a>
-      </td>
-    `;
-    table.appendChild(row);
-  });
-
-  // Replace wishlistList with the table
-  wishlistList.innerHTML = '';  // Clear any existing content
-  wishlistList.appendChild(table);
-  wishlistEmpty.style.display = 'none';
-} else {
-  wishlistEmpty.style.display = 'block';
-}
-
-    }
-
-    window.removeFromWishlist = function(productId) {
-      console.log('Removing product ID:', productId); // Log the ID being removed
-      let wishlist = JSON.parse(localStorage.getItem('wishlist'));
-      wishlist = wishlist.filter(item => item.id !== productId);
-      localStorage.setItem('wishlist', JSON.stringify(wishlist));
-      updateWishlistDisplay(); // Refresh the display
-    };
-
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
     updateWishlistDisplay();
+  }
+
+  function removeFromWishlist(productId) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist'));
+    wishlist = wishlist.filter(item => item.id !== productId);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    updateWishlistDisplay();
+  }
+
+  function updateWishlistDisplay() {
+    const wishlist = JSON.parse(localStorage.getItem('wishlist'));
+    const wishlistList = document.getElementById('wishlistList');
+    const wishlistEmpty = document.getElementById('wishlistEmpty');
+
+    wishlistList.innerHTML = '';
+
+    if (wishlist.length > 0) {
+      wishlistEmpty.style.display = 'none';
+
+      // Create table for wishlist items
+      const table = document.createElement('table');
+      table.className = 'wishlist-table';
+      
+      // Table header row
+      const headerRow = document.createElement('tr');
+      headerRow.innerHTML = `
+        <th></th>
+        <th></th>
+        <th>Product Name</th>
+        <th>Unit Price</th>
+        <th>Stock Status</th>
+        <th></th>
+      `;
+      table.appendChild(headerRow);
+
+      wishlist.forEach(product => {
+        const row = document.createElement('tr');
+        row.className = 'wishlist-item';
+        row.innerHTML = `
+          <td><button class="remove-from-wishlist" onclick="removeFromWishlist('${product.id}')">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.4581 26H9.54087C8.6487 25.9873 7.79428 25.6436 7.14847 25.0376C6.50265 24.4316 6.11305 23.608 6.05756 22.7314L5.00095 6.91429C4.99554 6.79961 5.01327 6.68501 5.05313 6.57712C5.09299 6.46923 5.15418 6.37018 5.23317 6.28572C5.31455 6.19818 5.41307 6.12774 5.52282 6.07864C5.63256 6.02954 5.75126 6.00279 5.87178 6H22.1272C22.2466 5.99974 22.3648 6.02366 22.4745 6.07026C22.5841 6.11686 22.6828 6.18516 22.7645 6.27091C22.8461 6.35665 22.909 6.45802 22.9492 6.5687C22.9894 6.67938 23.006 6.79701 22.9981 6.91429L21.9879 22.7314C21.9318 23.6158 21.5357 24.4459 20.88 25.0531C20.2243 25.6602 19.3584 25.9988 18.4581 26ZM6.84711 7.71429L7.74116 22.6286C7.7707 23.0783 7.97327 23.5 8.30763 23.8079C8.642 24.1158 9.08301 24.2867 9.54087 24.2857H18.4581C18.9152 24.284 19.3547 24.1122 19.6885 23.8048C20.0222 23.4975 20.2256 23.0773 20.2579 22.6286L21.1984 7.77143L6.84711 7.71429Z" fill="#555558"/>
+              <path d="M25.1154 8H3.88462C3.65 8 3.425 7.89464 3.2591 7.70711C3.0932 7.51957 3 7.26522 3 7C3 6.73478 3.0932 6.48043 3.2591 6.29289C3.425 6.10536 3.65 6 3.88462 6H25.1154C25.35 6 25.575 6.10536 25.7409 6.29289C25.9068 6.48043 26 6.73478 26 7C26 7.26522 25.9068 7.51957 25.7409 7.70711C25.575 7.89464 25.35 8 25.1154 8Z" fill="#555558"/>
+              <path d="M18.1 7H10.9C10.6623 6.99712 10.4352 6.9084 10.267 6.75274C10.0989 6.59708 10.0031 6.38679 10 6.16667V4.16667C10.0152 3.59647 10.2666 3.05351 10.7022 2.6502C11.1378 2.24688 11.7242 2.01409 12.34 2H16.66C17.2861 2.0145 17.8812 2.25501 18.3184 2.67019C18.7556 3.08538 19.0002 3.64235 19 4.22222V6.16667C18.9969 6.38679 18.9011 6.59708 18.733 6.75274C18.5648 6.9084 18.3377 6.99712 18.1 7ZM11.8 5.33333H17.2V4.22222C17.2 4.08961 17.1431 3.96244 17.0418 3.86867C16.9406 3.7749 16.8032 3.72222 16.66 3.72222H12.34C12.1968 3.72222 12.0594 3.7749 11.9582 3.86867C11.8569 3.96244 11.8 4.08961 11.8 4.22222V5.33333Z" fill="#555558"/>
+              <path d="M18 21C17.7359 20.997 17.4835 20.9045 17.2967 20.7423C17.1099 20.5801 17.0035 20.361 17 20.1316V10.8684C17 10.6381 17.1054 10.4172 17.2929 10.2544C17.4804 10.0915 17.7348 10 18 10C18.2652 10 18.5196 10.0915 18.7071 10.2544C18.8946 10.4172 19 10.6381 19 10.8684V20.1316C18.9965 20.361 18.8901 20.5801 18.7033 20.7423C18.5165 20.9045 18.2641 20.997 18 21Z" fill="#555558"/>
+              <path d="M11 21C10.7359 20.997 10.4835 20.9045 10.2967 20.7423C10.1099 20.5801 10.0035 20.361 10 20.1316V10.8684C10 10.6381 10.1054 10.4172 10.2929 10.2544C10.4804 10.0915 10.7348 10 11 10C11.2652 10 11.5196 10.0915 11.7071 10.2544C11.8946 10.4172 12 10.6381 12 10.8684V20.1316C11.9965 20.361 11.8901 20.5801 11.7033 20.7423C11.5165 20.9045 11.2641 20.997 11 21Z" fill="#555558"/>
+              <path d="M14 21C13.7359 20.997 13.4835 20.9045 13.2967 20.7423C13.1099 20.5801 13.0035 20.361 13 20.1316V10.8684C13 10.6381 13.1054 10.4172 13.2929 10.2544C13.4804 10.0915 13.7348 10 14 10C14.2652 10 14.5196 10.0915 14.7071 10.2544C14.8946 10.4172 15 10.6381 15 10.8684V20.1316C14.9965 20.361 14.8901 20.5801 14.7033 20.7423C14.5165 20.9045 14.2641 20.997 14 21Z" fill="#555558"/>
+              </svg>
+            </button></td>
+          <td><img src="${product.image}" alt="${product.title}" class="wishlist-item-image"></td>
+          <td>${product.title}</td>
+          <td>${product.price}</td>
+          <td>${product.inStock ? 'In Stock' : 'Out of Stock'}</td>
+          <td><a class="ck-button base-btn add_tot_cart" href=""><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H6" stroke="#19191C" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5" stroke="#19191C" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5" stroke="#19191C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.5 22C11.3284 22 12 21.3284 12 20.5C12 19.6716 11.3284 19 10.5 19C9.67157 19 9 19.6716 9 20.5C9 21.3284 9.67157 22 10.5 22Z" stroke="#19191C" stroke-width="1.5"/>
+<path d="M17.5 22C18.3284 22 19 21.3284 19 20.5C19 19.6716 18.3284 19 17.5 19C16.6716 19 16 19.6716 16 20.5C16 21.3284 16.6716 22 17.5 22Z" stroke="#19191C" stroke-width="1.5"/>
+</svg>
+Add to Cart</a></td>
+        `;
+        table.appendChild(row);
+      });
+
+      wishlistList.appendChild(table);
+    } else {
+      wishlistEmpty.style.display = 'block';
+    }
+  }
+
+  // Initialize wishlist display on page load
+  updateWishlistDisplay();
+
+  // Example of using toggleWishlist function
+  document.querySelectorAll('.wishlist-button').forEach(button => {
+    button.addEventListener('click', function(event) {
+      const product = {
+        id: this.dataset.productId,
+        title: this.dataset.productTitle,
+        image: this.dataset.productImage,
+        price: this.dataset.productPrice,
+        inStock: this.dataset.productInStock === "true"
+      };
+      toggleWishlist(event, product);
+    });
   });
+});
+
+
+
+
+
+
 </script>
 
 {% schema %}
